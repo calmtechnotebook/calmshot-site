@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>FAQ — CalmShot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #0d0d0d;
+    --text: #f0ede8;
+    --muted: rgba(240,237,232,0.38);
+    --border: rgba(240,237,232,0.08);
+  }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    line-height: 1.8;
+    font-size: 16px;
+  }
+  header {
+    padding: 64px 48px 48px;
+    border-bottom: 0.5px solid var(--border);
+    max-width: 720px;
+    margin: 0 auto;
+  }
+  .eyebrow {
+    font-size: 11px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 20px;
+  }
+  h1 {
+    font-family: 'DM Serif Display', serif;
+    font-style: italic;
+    font-size: 42px;
+    line-height: 1.15;
+    font-weight: 400;
+    margin-bottom: 16px;
+  }
+  .meta { font-size: 13px; color: var(--muted); }
+  main {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 48px 48px 96px;
+  }
+  .section-title {
+    font-size: 11px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 4px;
+    margin-top: 52px;
+  }
+  .section-title:first-child { margin-top: 0; }
+  .faq-item {
+    border-bottom: 0.5px solid var(--border);
+    padding: 22px 0;
+  }
+  .faq-item:last-child { border-bottom: none; }
+  .question {
+    font-family: 'DM Serif Display', serif;
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 1.3;
+    margin-bottom: 0;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    gap: 16px;
+    color: var(--text);
+    user-select: none;
+  }
+  .question::after {
+    content: '+';
+    font-family: 'DM Sans', sans-serif;
+    font-size: 20px;
+    font-weight: 300;
+    color: var(--muted);
+    flex-shrink: 0;
+    margin-top: 2px;
+    transition: transform 0.2s ease;
+    display: inline-block;
+  }
+  .faq-item.open .question::after { transform: rotate(45deg); }
+  .answer {
+    display: none;
+    color: rgba(240,237,232,0.65);
+    font-size: 15px;
+    line-height: 1.75;
+    padding-top: 14px;
+  }
+  .faq-item.open .answer { display: block; }
+  .answer p { margin-bottom: 10px; }
+  .answer p:last-child { margin-bottom: 0; }
+  a { color: var(--text); text-decoration: underline; text-underline-offset: 3px; }
+  footer {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 24px 48px 48px;
+    border-top: 0.5px solid var(--border);
+    font-size: 12px;
+    color: var(--muted);
+    display: flex;
+    justify-content: space-between;
+  }
+  @media (max-width: 600px) {
+    header, main, footer { padding-left: 24px; padding-right: 24px; }
+    h1 { font-size: 32px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <p class="eyebrow">CalmShot · Calm Tech Notebook</p>
+  <h1>Frequently Asked<br><em>Questions</em></h1>
+  <p class="meta">Last updated March 26, 2026</p>
+</header>
+<main>
+
+  <p class="section-title">Getting Started</p>
+
+  <div class="faq-item">
+    <div class="question">What iPhone do I need?</div>
+    <div class="answer"><p>CalmShot requires an iPhone 11 or newer running iOS 26. The Cinematic background blur feature works on all supported devices, as it uses Apple's native Cinematic Video API.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="question">Is there a subscription?</div>
+    <div class="answer"><p>No. CalmShot is a one-time purchase at $14.99. You pay once and own it forever, including all future updates. No subscriptions, no in-app purchases, no surprise charges.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="question">Does it work offline?</div>
+    <div class="answer"><p>Completely. CalmShot requires no internet connection — not to launch, not to record, not to save. Everything happens on your device.</p></div>
+  </div>
+
+  <p class="section-title">Camera & Recording</p>
+
+  <div class="faq-item">
+    <div class="question">What is the background blur?</div>
+    <div class="answer"><p>CalmShot uses Apple's native Cinematic Video API to create a real bokeh effect — the same technology used in Apple's Camera app. This is not a filter or a simulation. It produces a genuine depth-of-field effect in real time.</p><p>Use the Aperture slider to control the intensity of the blur.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="question">What resolution does CalmShot record in?</div>
+    <div class="answer"><p>CalmShot records in 9:16 vertical format and automatically selects the best resolution supported by your device — up to 4K. You can choose your preferred resolution in Settings.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="question">Where are my videos saved?</div>
+    <div class="answer"><p>Every recording is saved automatically to your iPhone's Photos library as soon as you stop recording. There is no in-app library — CalmShot saves directly to Photos and gets out of the way.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="question">What are the Aperture and Expo sliders?</div>
+    <div class="answer"><p>The Aperture slider (left) controls the depth of field — how blurred the background is. Slide down for more blur, up for less.</p><p>The Expo slider (right) controls the exposure — how bright or dark the image is. Useful when your environment is too bright or too dim.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="question">How does tap-to-focus work?</div>
+    <div class="answer"><p>Tap anywhere on the viewfinder to set the focus and exposure point. A circle appears to confirm. For a long press (0.6s), the focus and exposure lock — a square with a lock icon confirms this. Tap elsewhere to unlock.</p></div>
+  </div>
+
+  <p class="section-title">Teleprompter</p>
+
+  <div class="faq-item">
+    <div class="question">How do I use the teleprompter?</div>
+    <div class="answer"><p>Go to the Script tab, create a new script, and type or paste your text. Back on the Camera tab, select your script from the "Active Script" menu. The text will appear just below the lens as an overlay while you film.</p><p>The script scrolls automatically when you start recording. Adjust the speed with the Vitesse slider.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="question">Can I scroll the script manually?</div>
+    <div class="answer"><p>Yes. Drag up or down on the script overlay to navigate forward or backward through your script at any time.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="question">How many scripts can I save?</div>
+    <div class="answer"><p>Up to 10 scripts. You can also export any script as a .txt file to the Files app for backup or sharing.</p></div>
+  </div>
+
+  <p class="section-title">Privacy & Data</p>
+
+  <div class="faq-item">
+    <div class="question">What data does CalmShot collect?</div>
+    <div class="answer"><p>Nothing. CalmShot collects zero data. No analytics, no crash reports, no usage tracking. The app has no network access. Your scripts, preferences, and videos never leave your device.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="question">Do I need to create an account?</div>
+    <div class="answer"><p>No account, no sign-in, no email address. You download the app and use it immediately.</p></div>
+  </div>
+
+  <p class="section-title">Support</p>
+
+  <div class="faq-item">
+    <div class="question">I found a bug or have a suggestion.</div>
+    <div class="answer"><p>We'd love to hear from you. Reach out at <a href="mailto:calmtechnotebook@proton.me">calmtechnotebook@proton.me</a> — we read every message.</p></div>
+  </div>
+  <div class="faq-item">
+    <div class="question">Will there be more features?</div>
+    <div class="answer"><p>Yes. Landscape (horizontal) recording for YouTube-style videos is planned for v1.1. Updates are always free for existing customers.</p></div>
+  </div>
+
+</main>
+<footer>
+  <span>© 2026 Calm Tech Notebook</span>
+  <a href="mailto:calmtechnotebook@proton.me">calmtechnotebook@proton.me</a>
+</footer>
+<script>
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.querySelector('.question').addEventListener('click', () => {
+      item.classList.toggle('open');
+    });
+  });
+</script>
+</body>
+</html>
