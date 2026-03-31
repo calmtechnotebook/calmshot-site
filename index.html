@@ -1,0 +1,1462 @@
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="CalmShot — Vertical video recording app with cinematic blur, built-in teleprompter, and calm breathing. No tracking, no subscription. $14.99 one-time purchase.">
+<meta name="theme-color" content="#000000">
+<meta property="og:title" content="CalmShot — Film with intention.">
+<meta property="og:description" content="Vertical video recording app. Cinematic blur, teleprompter, calm breathing. $14.99, no subscription.">
+<meta property="og:type" content="website">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root {
+    --black: #000000;
+    --near-black: #0a0a0a;
+    --card: #141414;
+    --card2: #1a1a1a;
+    --border: #222222;
+    --border-soft: #1e1e1e;
+    --white: #ffffff;
+    --grey-1: #888888;
+    --grey-2: #555555;
+    --grey-3: #333333;
+    --accent: #c8c8c8;
+    --red: #cc3333;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    background: var(--black);
+    color: var(--white);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+  }
+
+  /* ─── HERO ─── */
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 80px 24px 60px;
+    position: relative;
+    text-align: center;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 70% 55% at 50% 40%, rgba(80,80,80,0.07) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .logo-wrap {
+    width: 96px;
+    height: 96px;
+    border-radius: 22px;
+    overflow: hidden;
+    margin-bottom: 36px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.1s;
+    background: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 30px rgba(0,0,0,0.6);
+  }
+
+  .logo-wrap svg {
+    display: block;
+  }
+
+  .hero-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--grey-1);
+    margin-bottom: 20px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.2s;
+  }
+
+  .hero-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(44px, 8vw, 80px);
+    font-weight: 400;
+    line-height: 1.05;
+    letter-spacing: -0.02em;
+    color: var(--white);
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.3s;
+  }
+
+  .hero-subtitle {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(22px, 4vw, 40px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.01em;
+    color: var(--accent);
+    margin-bottom: 8px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.38s;
+  }
+
+  .hero-subtitle em {
+    font-style: italic;
+    color: var(--grey-1);
+  }
+
+  .hero-tagline {
+    font-size: clamp(15px, 2.5vw, 18px);
+    font-weight: 300;
+    color: var(--grey-1);
+    margin-top: 20px;
+    margin-bottom: 48px;
+    letter-spacing: 0.01em;
+    line-height: 1.6;
+    max-width: 480px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.45s;
+  }
+
+  .cta-group {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.6s;
+  }
+
+  .btn-primary {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    background: var(--white);
+    color: var(--black);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 15px;
+    font-weight: 500;
+    padding: 14px 28px;
+    border-radius: 50px;
+    text-decoration: none;
+    letter-spacing: -0.01em;
+    transition: opacity 0.2s ease, transform 0.2s ease;
+  }
+
+  .btn-primary:hover {
+    opacity: 0.88;
+    transform: translateY(-1px);
+  }
+
+  .btn-primary svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+  }
+
+  .btn-secondary {
+    font-size: 13px;
+    color: var(--grey-2);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+  }
+
+  .btn-secondary:hover { color: var(--grey-1); }
+
+  .hero-price {
+    font-size: 12px;
+    color: var(--grey-2);
+    margin-top: 6px;
+    letter-spacing: 0.04em;
+    opacity: 0;
+    animation: fadeUp 0.9s ease forwards 0.7s;
+  }
+
+  /* ─── SCREENSHOTS ─── */
+  .screenshots-section {
+    padding: 80px 24px 100px;
+    overflow: hidden;
+    position: relative;
+  }
+
+  .screenshots-track {
+    display: flex;
+    gap: 24px;
+    justify-content: center;
+    align-items: flex-end;
+  }
+
+  .phone-frame {
+    width: 220px;
+    height: 476px;
+    background: #000;
+    border-radius: 30px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    position: relative;
+    flex-shrink: 0;
+    box-shadow: 0 30px 70px rgba(0,0,0,0.8), 0 0 0 1px #111;
+    transition: transform 0.4s ease;
+  }
+
+  .phone-frame:hover { transform: translateY(-6px); }
+  .phone-frame.center { transform: scale(1.06); }
+  .phone-frame.center:hover { transform: scale(1.06) translateY(-6px); }
+
+  .phone-frame .notch {
+    position: absolute; top: 0; left: 50%; transform: translateX(-50%);
+    width: 74px; height: 20px; background: #000;
+    border-radius: 0 0 12px 12px; z-index: 10;
+  }
+
+  .phone-inner {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', sans-serif;
+  }
+
+  /* Screen status bar */
+  .s-status {
+    display: flex; justify-content: space-between; align-items: center;
+    padding: 10px 16px 0; height: 30px; flex-shrink: 0;
+  }
+  .s-time { font-size: 10px; font-weight: 700; color: #fff; }
+  .s-icons { display: flex; align-items: center; gap: 4px; }
+
+  /* ── Camera screen ── */
+  .s-cam-viewfinder {
+    flex: 1;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: linear-gradient(170deg, #1c1c1c 0%, #0d0d0d 100%);
+  }
+
+  .s-cam-hud {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 10px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .s-cam-switch {
+    width: 22px; height: 22px; border-radius: 11px;
+    background: rgba(255,255,255,0.1);
+    border: 0.5px solid rgba(255,255,255,0.15);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px; color: #ccc;
+  }
+
+  .s-cam-badge {
+    font-size: 7px;
+    padding: 2px 7px;
+    border-radius: 10px;
+    background: rgba(255,255,255,0.1);
+    border: 0.5px solid rgba(255,255,255,0.15);
+    color: #ddd;
+    letter-spacing: 0.02em;
+  }
+
+  .s-cam-res {
+    font-size: 7px;
+    color: #555;
+  }
+
+  /* Teleprompter overlay on camera */
+  .s-prompter {
+    position: relative; z-index: 2;
+    margin: 4px 10px;
+    background: rgba(0,0,0,0.55);
+    border-radius: 8px;
+    padding: 7px 9px;
+    border: 0.5px solid rgba(255,255,255,0.06);
+  }
+
+  .s-prompter-line {
+    font-size: 8px;
+    line-height: 1.7;
+    color: rgba(255,255,255,0.35);
+  }
+
+  .s-prompter-line.active {
+    color: rgba(255,255,255,0.9);
+    font-weight: 500;
+  }
+
+  /* Script selector */
+  .s-script-select {
+    position: relative; z-index: 2;
+    display: flex; justify-content: space-between;
+    margin: 4px 10px;
+    background: rgba(255,255,255,0.06);
+    border-radius: 7px;
+    border: 0.5px solid rgba(255,255,255,0.08);
+    padding: 4px 8px;
+    font-size: 7px; color: #666;
+  }
+
+  .s-script-select span:last-child { color: #aaa; }
+
+  /* Speed slider */
+  .s-speed-row {
+    position: relative; z-index: 2;
+    display: flex; align-items: center; gap: 5px;
+    padding: 3px 10px;
+    font-size: 7px; color: #555;
+  }
+
+  .s-speed-track { flex: 1; height: 1.5px; background: #333; border-radius: 1px; }
+  .s-speed-fill { width: 40%; height: 100%; background: #666; border-radius: 1px; }
+
+  /* REC button zone */
+  .s-rec-zone {
+    position: relative; z-index: 2;
+    flex: 1;
+    display: flex; align-items: flex-end; justify-content: center;
+    padding-bottom: 10px;
+  }
+
+  .s-rec-btn {
+    width: 44px; height: 44px; border-radius: 22px;
+    background: var(--red);
+    border: 3px solid rgba(255,255,255,0.15);
+    box-shadow: 0 2px 12px rgba(204,51,51,0.3);
+  }
+
+  /* Side sliders */
+  .s-cam-sliders-left {
+    position: absolute;
+    left: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .s-cam-sliders-right {
+    position: absolute;
+    right: 6px;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .s-slider-label {
+    font-size: 5.5px;
+    color: #555;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    transform: rotate(180deg);
+  }
+
+  .s-slider-track {
+    width: 2px;
+    height: 50px;
+    background: #333;
+    border-radius: 1px;
+    position: relative;
+  }
+
+  .s-slider-fill {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    background: #666;
+    border-radius: 1px;
+  }
+
+  .s-slider-thumb {
+    width: 6px; height: 6px;
+    border-radius: 50%;
+    background: #fff;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  /* ── Script screen ── */
+  .s-script-header {
+    padding: 6px 12px 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.2px;
+    flex-shrink: 0;
+  }
+
+  .s-script-list {
+    padding: 0 10px;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .s-script-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 0;
+    border-bottom: 0.5px solid #1e1e1e;
+    font-size: 9px;
+  }
+
+  .s-script-item-name { color: #fff; font-weight: 500; }
+  .s-script-item-meta { font-size: 8px; color: #444; }
+  .s-script-item.muted .s-script-item-name { color: #666; }
+
+  .s-script-editor {
+    margin: 6px 10px;
+    border-radius: 8px;
+    border: 0.5px solid #222;
+    padding: 7px 8px;
+    font-size: 7.5px;
+    color: #666;
+    line-height: 1.7;
+    background: #111;
+    flex: 1;
+  }
+
+  .s-script-save {
+    margin: 5px 10px;
+    padding: 7px;
+    border-radius: 8px;
+    border: 0.5px solid #222;
+    font-size: 8px;
+    color: #fff;
+    text-align: center;
+    background: #1c1c1e;
+    flex-shrink: 0;
+  }
+
+  /* ── Pause screen ── */
+  .s-pause-content {
+    flex: 1; display: flex; flex-direction: column; align-items: center;
+    padding: 0 14px 14px;
+  }
+  .s-pause-title { font-size: 13px; font-weight: 600; color: #fff; margin-top: 20px; margin-bottom: 26px; letter-spacing: -0.2px; }
+  .s-pause-orb {
+    width: 130px; height: 130px; border-radius: 50%;
+    background: radial-gradient(circle at 45% 42%, #5a5a5a, #2e2e2e 60%, #1e1e1e 85%);
+    box-shadow: 0 0 30px rgba(80,80,80,0.12);
+    flex-shrink: 0;
+  }
+  .s-pause-phase { font-size: 12px; font-weight: 600; color: #fff; margin-top: 18px; }
+  .s-pause-counter { font-size: 8px; color: #666; margin-top: 3px; }
+  .s-pause-dots {
+    display: flex; gap: 4px; margin-top: 8px;
+  }
+  .s-pause-dot {
+    width: 4px; height: 4px; border-radius: 50%;
+    background: #2a2a2a;
+  }
+  .s-pause-dot.on { background: #777; }
+  .s-pause-spacer { flex: 1; }
+  .s-pause-btn {
+    background: #1c1c1e; border-radius: 8px; padding: 9px 0;
+    color: #fff; font-size: 10px; font-weight: 500; width: 100%; text-align: center; margin-bottom: 8px;
+  }
+  .s-pause-stop {
+    font-size: 8px; color: #444; text-align: center;
+  }
+
+  /* ── Settings screen ── */
+  .s-settings-header {
+    padding: 6px 12px 4px;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+    letter-spacing: -0.2px;
+    flex-shrink: 0;
+  }
+
+  .s-settings-rows {
+    padding: 0 10px;
+    flex: 1;
+    overflow: hidden;
+  }
+
+  .s-srow {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 6px 0;
+    border-bottom: 0.5px solid #1e1e1e;
+    font-size: 8.5px;
+    color: #fff;
+  }
+
+  .s-sval { font-size: 7.5px; color: #555; }
+
+  .s-toggle {
+    width: 22px; height: 13px; border-radius: 7px; position: relative;
+  }
+  .s-toggle.on { background: #666; }
+  .s-toggle.off { background: #333; }
+  .s-toggle-knob {
+    width: 9px; height: 9px; border-radius: 50%; background: #fff;
+    position: absolute; top: 2px;
+  }
+  .s-toggle.on .s-toggle-knob { left: 11px; }
+  .s-toggle.off .s-toggle-knob { left: 2px; }
+
+  .s-sec-hdr {
+    font-size: 6.5px;
+    color: #444;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 6px 0 2px;
+  }
+
+  .s-theme-row {
+    display: flex; gap: 4px; padding: 5px 0;
+  }
+
+  .s-theme-btn {
+    flex: 1; padding: 4px 0; border-radius: 6px;
+    font-size: 7px; text-align: center;
+    border: 0.5px solid #222; color: #555;
+    background: transparent;
+  }
+
+  .s-theme-btn.active {
+    border-color: #555; color: #fff; background: #1c1c1e;
+  }
+
+  .s-settings-note {
+    font-size: 6.5px; color: #333; line-height: 1.5; padding-top: 3px;
+  }
+
+  /* Tab bar */
+  .s-tabbar { flex-shrink: 0; padding: 5px 8px 14px; }
+  .s-tabbar-inner { background: #1a1a1a; border-radius: 16px; display: flex; justify-content: space-around; padding: 6px 3px; }
+  .s-tab { display: flex; flex-direction: column; align-items: center; gap: 2px; padding: 3px 10px; border-radius: 12px; min-width: 38px; }
+  .s-tab.active { background: #2e2e2e; }
+  .s-tab svg { width: 14px; height: 14px; fill: #fff; stroke: none; }
+  .s-tab-lbl { font-size: 6px; color: #fff; font-weight: 500; }
+
+  /* ─── FEATURES ─── */
+  .features-section {
+    padding: 60px 24px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .section-eyebrow {
+    font-size: 11px;
+    font-weight: 500;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--grey-2);
+    margin-bottom: 16px;
+    text-align: center;
+  }
+
+  .section-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(32px, 5vw, 52px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    text-align: center;
+    margin-bottom: 56px;
+  }
+
+  .section-heading em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2px;
+  }
+
+  .feature-card {
+    background: var(--card);
+    padding: 32px 28px;
+    border: 1px solid var(--border-soft);
+    transition: background 0.25s ease;
+  }
+
+  .feature-card:hover { background: var(--card2); }
+
+  .feature-card:first-child { border-radius: 16px 0 0 0; }
+  .feature-card:nth-child(3) { border-radius: 0 16px 0 0; }
+  .feature-card:nth-child(4) { border-radius: 0 0 0 16px; }
+  .feature-card:last-child { border-radius: 0 0 16px 0; }
+
+  .feature-icon {
+    width: 40px; height: 40px;
+    background: var(--card2);
+    border-radius: 10px;
+    display: flex; align-items: center; justify-content: center;
+    margin-bottom: 18px;
+  }
+
+  .feature-icon svg {
+    stroke: var(--grey-1);
+    fill: none;
+    width: 18px; height: 18px;
+    stroke-width: 1.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .feature-name {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 8px;
+    letter-spacing: -0.01em;
+  }
+
+  .feature-desc {
+    font-size: 13.5px;
+    color: var(--grey-1);
+    line-height: 1.6;
+  }
+
+  /* ─── WORKFLOW ─── */
+  .workflow-section {
+    padding: 80px 24px;
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .workflow-heading {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(28px, 4.5vw, 44px);
+    font-weight: 400;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .workflow-heading em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  .workflow-sub {
+    font-size: 15px;
+    color: var(--grey-1);
+    margin-bottom: 56px;
+    max-width: 460px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.6;
+  }
+
+  .workflow-steps {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 0;
+    position: relative;
+  }
+
+  .workflow-step {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 14px;
+    flex: 1;
+    max-width: 180px;
+    position: relative;
+  }
+
+  .workflow-num {
+    font-family: 'DM Serif Display', serif;
+    font-size: 14px;
+    color: var(--grey-3);
+    margin-bottom: 2px;
+  }
+
+  .workflow-icon {
+    width: 56px;
+    height: 56px;
+    border-radius: 16px;
+    background: var(--card);
+    border: 1px solid var(--border-soft);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background 0.25s ease, border-color 0.25s ease;
+  }
+
+  .workflow-step:hover .workflow-icon {
+    background: var(--card2);
+    border-color: var(--border);
+  }
+
+  .workflow-icon svg {
+    stroke: var(--grey-1);
+    fill: none;
+    width: 22px;
+    height: 22px;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .workflow-label {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    letter-spacing: -0.01em;
+  }
+
+  .workflow-desc {
+    font-size: 12.5px;
+    color: var(--grey-1);
+    line-height: 1.5;
+    max-width: 150px;
+  }
+
+  /* Arrow connector between steps */
+  .workflow-arrow {
+    display: flex;
+    align-items: center;
+    padding-top: 34px; /* align with icon center */
+    color: var(--grey-3);
+    flex-shrink: 0;
+    width: 40px;
+    justify-content: center;
+  }
+
+  .workflow-arrow svg {
+    width: 20px;
+    height: 20px;
+    stroke: var(--grey-3);
+    fill: none;
+    stroke-width: 1.5;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  /* ─── DIVIDER ─── */
+  .divider {
+    width: 1px;
+    height: 60px;
+    background: linear-gradient(to bottom, transparent, var(--border), transparent);
+    margin: 0 auto;
+  }
+
+  /* ─── PHILOSOPHY ─── */
+  .philosophy-section {
+    padding: 80px 24px;
+    max-width: 660px;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .philosophy-quote {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(22px, 4vw, 34px);
+    font-weight: 400;
+    font-style: italic;
+    line-height: 1.45;
+    color: var(--accent);
+    margin-bottom: 24px;
+    letter-spacing: -0.01em;
+  }
+
+  .philosophy-body {
+    font-size: 15px;
+    color: var(--grey-1);
+    line-height: 1.8;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  /* ─── PILLARS ─── */
+  .pillars-section {
+    padding: 40px 24px 80px;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .pillars-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1px;
+    border: 1px solid var(--border-soft);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+
+  .pillar-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+    padding: 24px 28px;
+    background: var(--card);
+    transition: background 0.2s ease;
+  }
+
+  .pillar-row:hover { background: var(--card2); }
+
+  .pillar-number {
+    font-family: 'DM Serif Display', serif;
+    font-size: 28px;
+    color: var(--grey-3);
+    flex-shrink: 0;
+    line-height: 1;
+    margin-top: 2px;
+    min-width: 32px;
+  }
+
+  .pillar-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--white);
+    margin-bottom: 6px;
+    letter-spacing: -0.01em;
+  }
+
+  .pillar-desc {
+    font-size: 13.5px;
+    color: var(--grey-1);
+    line-height: 1.6;
+  }
+
+  /* ─── BOTTOM CTA ─── */
+  .bottom-cta {
+    padding: 80px 24px 100px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .bottom-cta::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse 60% 60% at 50% 80%, rgba(70,70,70,0.06) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  .bottom-cta-title {
+    font-family: 'DM Serif Display', serif;
+    font-size: clamp(36px, 7vw, 64px);
+    font-weight: 400;
+    line-height: 1.1;
+    letter-spacing: -0.02em;
+    margin-bottom: 16px;
+  }
+
+  .bottom-cta-title em { font-style: italic; color: var(--accent); }
+
+  .bottom-cta-sub {
+    font-size: 15px;
+    color: var(--grey-1);
+    margin-bottom: 40px;
+    letter-spacing: 0.01em;
+  }
+
+  .appstore-badge {
+    display: inline-flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+  }
+
+  .appstore-note {
+    font-size: 11px;
+    color: var(--grey-2);
+    margin-top: 12px;
+    letter-spacing: 0.04em;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    border-top: 1px solid var(--border-soft);
+    padding: 32px 24px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    text-align: center;
+  }
+
+  .footer-links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 24px;
+    justify-content: center;
+  }
+
+  .footer-links a {
+    font-size: 12.5px;
+    color: var(--grey-2);
+    text-decoration: none;
+    letter-spacing: 0.02em;
+    transition: color 0.2s ease;
+  }
+
+  .footer-links a:hover { color: var(--grey-1); }
+
+  .footer-copy {
+    font-size: 11px;
+    color: var(--grey-3);
+    letter-spacing: 0.03em;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  /* ─── RESPONSIVE ─── */
+  @media (max-width: 768px) {
+
+    .hero {
+      padding: 40px 20px 48px;
+      min-height: auto;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .logo-wrap { width: 72px; height: 72px; border-radius: 16px; margin-bottom: 20px; }
+    .hero-eyebrow { font-size: 10px; margin-bottom: 12px; }
+    .hero-title { font-size: 42px; margin-bottom: 4px; }
+    .hero-subtitle { font-size: 20px; }
+    .hero-tagline { font-size: 14px; margin-top: 14px; margin-bottom: 32px; max-width: 100%; }
+    .btn-primary { font-size: 15px; padding: 14px 22px; width: 100%; justify-content: center; box-sizing: border-box; }
+    .cta-group { width: 100%; }
+
+    /* Screenshots */
+    .screenshots-section { padding: 32px 8px 48px; overflow: hidden; }
+    .screenshots-track { gap: 6px; justify-content: center; flex-wrap: nowrap; }
+    .phone-frame { display: flex; width: 88px; height: 191px; border-radius: 14px; }
+    .phone-frame.center { transform: scale(1.05); width: 88px; height: 191px; }
+    .phone-frame.center:hover { transform: scale(1.05) translateY(-3px); }
+
+    /* Workflow */
+    .workflow-section { padding: 48px 20px; }
+    .workflow-heading { font-size: 26px; }
+    .workflow-sub { font-size: 13px; margin-bottom: 36px; }
+    .workflow-steps { flex-wrap: wrap; gap: 8px; }
+    .workflow-arrow { padding-top: 0; width: 24px; }
+    .workflow-arrow svg { width: 16px; height: 16px; }
+    .workflow-step { max-width: 140px; }
+    .workflow-icon { width: 44px; height: 44px; border-radius: 12px; }
+    .workflow-icon svg { width: 18px; height: 18px; }
+    .workflow-label { font-size: 13px; }
+    .workflow-desc { font-size: 11px; max-width: 120px; }
+
+    /* Features */
+    .features-section { padding: 40px 16px 48px; width: 100%; box-sizing: border-box; }
+    .section-heading { font-size: 26px; margin-bottom: 28px; }
+    .features-grid { grid-template-columns: 1fr; width: 100%; }
+    .feature-card { padding: 22px 18px; }
+    .feature-card:first-child { border-radius: 16px 16px 0 0; }
+    .feature-card:nth-child(2),
+    .feature-card:nth-child(3),
+    .feature-card:nth-child(4),
+    .feature-card:nth-child(5) { border-radius: 0; }
+    .feature-card:last-child { border-radius: 0 0 16px 16px; }
+
+    /* Philosophy */
+    .philosophy-section {
+      padding: 48px 20px;
+      width: 100%;
+      box-sizing: border-box;
+      max-width: 100%;
+    }
+    .philosophy-quote { font-size: 19px; }
+    .philosophy-body { font-size: 13px; max-width: 100%; }
+
+    /* Pillars */
+    .pillars-section { padding: 16px 16px 48px; }
+    .pillar-row { padding: 18px; gap: 14px; }
+    .pillar-number { font-size: 20px; min-width: 24px; }
+    .pillar-title { font-size: 14px; }
+    .pillar-desc { font-size: 13px; }
+
+    /* Bottom CTA */
+    .bottom-cta {
+      padding: 56px 20px 72px;
+      width: 100%;
+      box-sizing: border-box;
+    }
+    .bottom-cta-title { font-size: 34px; }
+    .bottom-cta-sub { font-size: 14px; max-width: 100%; }
+    .btn-primary { max-width: 100%; }
+
+    /* Footer */
+    footer { padding: 24px 20px; gap: 12px; }
+    .footer-links { gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .footer-links a { font-size: 12px; }
+    .footer-copy { font-size: 10px; text-align: center; }
+  }
+</style>
+
+<!-- ══════════════ HERO ══════════════ -->
+<section class="hero">
+  <div class="logo-wrap">
+    <svg viewBox="0 0 512 512" xmlns="http://www.w3.org/2000/svg" width="96" height="96">
+      <defs>
+        <!-- Sphere body -->
+        <radialGradient id="sph" cx="0.40" cy="0.32" r="0.58">
+          <stop offset="0%" stop-color="#3d3d3d"/>
+          <stop offset="45%" stop-color="#1e1e1e"/>
+          <stop offset="100%" stop-color="#050505"/>
+        </radialGradient>
+        <!-- Top-left specular highlight -->
+        <radialGradient id="shine" cx="0.36" cy="0.26" r="0.40">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.22"/>
+          <stop offset="50%" stop-color="#ffffff" stop-opacity="0.06"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Right-edge rim light -->
+        <radialGradient id="rim" cx="0.75" cy="0.38" r="0.35">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.09"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Lens glass -->
+        <radialGradient id="lens" cx="0.42" cy="0.38" r="0.55">
+          <stop offset="0%" stop-color="#1a1a1a"/>
+          <stop offset="60%" stop-color="#0a0a0a"/>
+          <stop offset="100%" stop-color="#020202"/>
+        </radialGradient>
+        <!-- Lens inner highlight -->
+        <radialGradient id="lensHi" cx="0.40" cy="0.34" r="0.45">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.12"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+        <!-- Lens center dot reflection -->
+        <radialGradient id="dot" cx="0.42" cy="0.38" r="0.50">
+          <stop offset="0%" stop-color="#ffffff" stop-opacity="0.55"/>
+          <stop offset="100%" stop-color="#ffffff" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+
+      <!-- Sphere -->
+      <circle cx="256" cy="266" r="210" fill="url(#sph)"/>
+      <circle cx="256" cy="266" r="210" fill="url(#shine)"/>
+      <circle cx="256" cy="266" r="210" fill="url(#rim)"/>
+
+      <!-- Lens housing — outer ring -->
+      <circle cx="256" cy="272" r="88" fill="none" stroke="#1a1a1a" stroke-width="6"/>
+      <circle cx="256" cy="272" r="88" fill="none" stroke="rgba(255,255,255,0.06)" stroke-width="1.5"/>
+
+      <!-- Lens housing — mid ring -->
+      <circle cx="256" cy="272" r="72" fill="url(#lens)"/>
+      <circle cx="256" cy="272" r="72" fill="none" stroke="rgba(255,255,255,0.08)" stroke-width="1"/>
+
+      <!-- Inner ring -->
+      <circle cx="256" cy="272" r="52" fill="#080808"/>
+      <circle cx="256" cy="272" r="52" fill="url(#lensHi)"/>
+      <circle cx="256" cy="272" r="52" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="0.8"/>
+
+      <!-- Deep glass center -->
+      <circle cx="256" cy="272" r="32" fill="#030303"/>
+      <circle cx="256" cy="272" r="32" fill="none" stroke="rgba(255,255,255,0.04)" stroke-width="0.6"/>
+
+      <!-- Aperture iris hint -->
+      <circle cx="256" cy="272" r="22" fill="#0a0a0a"/>
+
+      <!-- Specular dot — the tiny bright reflection on the lens -->
+      <circle cx="248" cy="262" r="5" fill="url(#dot)"/>
+      <circle cx="248" cy="262" r="2" fill="rgba(255,255,255,0.5)"/>
+    </svg>
+  </div>
+  <p class="hero-eyebrow">presented by Calm Tech Notebook</p>
+  <h1 class="hero-title">CalmShot</h1>
+  <h2 class="hero-subtitle">Film with intention.<br><em>Protect your focus.</em></h2>
+  <p class="hero-tagline">A vertical video recording app for content creators who want cinematic quality and calm — without the complexity, the subscriptions, or the tracking.</p>
+  <div class="cta-group">
+    <a href="#appstore" class="btn-primary">
+      <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
+    <a href="#" class="btn-secondary">$14.99 · One-time purchase →</a>
+  </div>
+  <p class="hero-price">No subscription. No tracking. No cloud required.</p>
+</section>
+
+<!-- ══════════════ SCREENSHOTS ══════════════ -->
+<section class="screenshots-section">
+  <div class="screenshots-track">
+
+    <!-- Phone 1 — Camera -->
+    <div class="phone-frame">
+      <div class="notch"></div>
+      <div class="phone-inner">
+        <div class="s-status">
+          <span class="s-time">09:41</span>
+          <div class="s-icons">
+            <svg width="10" height="7" viewBox="0 0 17 11" fill="white"><rect x="0" y="5" width="3" height="6" rx="0.8"/><rect x="4.5" y="3.5" width="3" height="7.5" rx="0.8"/><rect x="9" y="1.5" width="3" height="9.5" rx="0.8"/><rect x="13.5" y="0" width="3" height="11" rx="0.8" opacity="0.3"/></svg>
+            <svg width="15" height="8" viewBox="0 0 26 13" fill="none"><rect x="0.5" y="0.5" width="22" height="12" rx="3.5" stroke="white" stroke-opacity="0.35"/><rect x="2" y="2" width="9" height="9" rx="2" fill="white"/></svg>
+          </div>
+        </div>
+        <div class="s-cam-viewfinder">
+          <!-- Side sliders -->
+          <div class="s-cam-sliders-left">
+            <div class="s-slider-label">Aperture</div>
+            <div class="s-slider-track">
+              <div class="s-slider-fill" style="height:60%;"></div>
+              <div class="s-slider-thumb" style="bottom:57%;"></div>
+            </div>
+          </div>
+          <div class="s-cam-sliders-right">
+            <div class="s-slider-label">Expo</div>
+            <div class="s-slider-track">
+              <div class="s-slider-fill" style="height:45%;"></div>
+              <div class="s-slider-thumb" style="bottom:42%;"></div>
+            </div>
+          </div>
+
+          <!-- HUD -->
+          <div class="s-cam-hud">
+            <div class="s-cam-switch">⟳</div>
+            <span class="s-cam-res">4K · 30fps</span>
+            <div class="s-cam-badge">Cinematic</div>
+          </div>
+
+          <!-- Teleprompter overlay -->
+          <div class="s-prompter">
+            <div class="s-prompter-line">...and that's exactly why I wanted</div>
+            <div class="s-prompter-line active">to share this project with you today.</div>
+            <div class="s-prompter-line">It's something that truly matters</div>
+          </div>
+
+          <!-- Script selector -->
+          <div class="s-script-select">
+            <span>Active script</span>
+            <span>Product intro ›</span>
+          </div>
+
+          <!-- Speed slider -->
+          <div class="s-speed-row">
+            <span>Speed</span>
+            <div class="s-speed-track"><div class="s-speed-fill"></div></div>
+            <span>2×</span>
+          </div>
+
+          <!-- REC button -->
+          <div class="s-rec-zone">
+            <div class="s-rec-btn"></div>
+          </div>
+        </div>
+
+        <div class="s-tabbar"><div class="s-tabbar-inner">
+          <div class="s-tab active">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4.5" fill="white"/></svg>
+            <span class="s-tab-lbl">Camera</span>
+          </div>
+          <div class="s-tab">
+            <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="white"/></svg>
+            <span class="s-tab-lbl">Script</span>
+          </div>
+          <div class="s-tab">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="white"/></svg>
+            <span class="s-tab-lbl">Pause</span>
+          </div>
+          <div class="s-tab">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="white"/><circle cx="12" cy="12" r="3.5" fill="black"/></svg>
+            <span class="s-tab-lbl">Settings</span>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- Phone 2 — Script (center, elevated) -->
+    <div class="phone-frame center">
+      <div class="notch"></div>
+      <div class="phone-inner">
+        <div class="s-status">
+          <span class="s-time">09:41</span>
+          <div class="s-icons">
+            <svg width="10" height="7" viewBox="0 0 17 11" fill="white"><rect x="0" y="5" width="3" height="6" rx="0.8"/><rect x="4.5" y="3.5" width="3" height="7.5" rx="0.8"/><rect x="9" y="1.5" width="3" height="9.5" rx="0.8"/><rect x="13.5" y="0" width="3" height="11" rx="0.8" opacity="0.3"/></svg>
+            <svg width="15" height="8" viewBox="0 0 26 13" fill="none"><rect x="0.5" y="0.5" width="22" height="12" rx="3.5" stroke="white" stroke-opacity="0.35"/><rect x="2" y="2" width="9" height="9" rx="2" fill="white"/></svg>
+          </div>
+        </div>
+        <div class="s-script-header">Scripts</div>
+        <div class="s-script-list">
+          <div class="s-script-item">
+            <span class="s-script-item-name">Product intro</span>
+            <span class="s-script-item-meta">active ›</span>
+          </div>
+          <div class="s-script-item muted">
+            <span class="s-script-item-name">Team presentation</span>
+            <span class="s-script-item-meta">›</span>
+          </div>
+          <div class="s-script-item muted">
+            <span class="s-script-item-name">Demo tutorial v2</span>
+            <span class="s-script-item-meta">›</span>
+          </div>
+        </div>
+        <div class="s-script-editor">...and that's exactly why I wanted to share this project with you today. It's something that truly matters to me.</div>
+        <div class="s-script-save">+ Save this script</div>
+
+        <div class="s-tabbar"><div class="s-tabbar-inner">
+          <div class="s-tab">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4.5" fill="white"/></svg>
+            <span class="s-tab-lbl">Camera</span>
+          </div>
+          <div class="s-tab active">
+            <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="white"/></svg>
+            <span class="s-tab-lbl">Script</span>
+          </div>
+          <div class="s-tab">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="white"/></svg>
+            <span class="s-tab-lbl">Pause</span>
+          </div>
+          <div class="s-tab">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="white"/><circle cx="12" cy="12" r="3.5" fill="black"/></svg>
+            <span class="s-tab-lbl">Settings</span>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+    <!-- Phone 3 — Pause -->
+    <div class="phone-frame">
+      <div class="notch"></div>
+      <div class="phone-inner">
+        <div class="s-status">
+          <span class="s-time">09:41</span>
+          <div class="s-icons">
+            <svg width="10" height="7" viewBox="0 0 17 11" fill="white"><rect x="0" y="5" width="3" height="6" rx="0.8"/><rect x="4.5" y="3.5" width="3" height="7.5" rx="0.8"/><rect x="9" y="1.5" width="3" height="9.5" rx="0.8"/><rect x="13.5" y="0" width="3" height="11" rx="0.8" opacity="0.3"/></svg>
+            <svg width="15" height="8" viewBox="0 0 26 13" fill="none"><rect x="0.5" y="0.5" width="22" height="12" rx="3.5" stroke="white" stroke-opacity="0.35"/><rect x="2" y="2" width="9" height="9" rx="2" fill="white"/></svg>
+          </div>
+        </div>
+        <div class="s-pause-content">
+          <div class="s-pause-title">Calm pause</div>
+          <div class="s-pause-orb"></div>
+          <div class="s-pause-phase">Inhale</div>
+          <div class="s-pause-counter">4s</div>
+          <div class="s-pause-dots">
+            <div class="s-pause-dot on"></div>
+            <div class="s-pause-dot"></div>
+            <div class="s-pause-dot"></div>
+            <div class="s-pause-dot"></div>
+          </div>
+          <div class="s-pause-spacer"></div>
+          <div class="s-pause-btn">Start</div>
+          <div class="s-pause-stop">Stop</div>
+        </div>
+        <div class="s-tabbar"><div class="s-tabbar-inner">
+          <div class="s-tab">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9" fill="none" stroke="white" stroke-width="2"/><circle cx="12" cy="12" r="4.5" fill="white"/></svg>
+            <span class="s-tab-lbl">Camera</span>
+          </div>
+          <div class="s-tab">
+            <svg viewBox="0 0 24 24"><rect x="5" y="3" width="14" height="18" rx="2" fill="white"/></svg>
+            <span class="s-tab-lbl">Script</span>
+          </div>
+          <div class="s-tab active">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" fill="white"/></svg>
+            <span class="s-tab-lbl">Pause</span>
+          </div>
+          <div class="s-tab">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="8" fill="white"/><circle cx="12" cy="12" r="3.5" fill="black"/></svg>
+            <span class="s-tab-lbl">Settings</span>
+          </div>
+        </div></div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ══════════════ CALM WORKFLOW ══════════════ -->
+<section class="workflow-section">
+  <h2 class="workflow-heading">The Calm <em>workflow.</em></h2>
+  <p class="workflow-sub">Four steps. No rush. Every great video starts before you press record.</p>
+
+  <div class="workflow-steps">
+    <div class="workflow-step">
+      <div class="workflow-num">01</div>
+      <div class="workflow-icon">
+        <svg viewBox="0 0 24 24"><path d="M11 4H4a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-7"/><path d="M18.5 2.5a2.121 2.121 0 0 1 3 3L12 15l-4 1 1-4 9.5-9.5z"/></svg>
+      </div>
+      <div class="workflow-label">Write</div>
+      <div class="workflow-desc">Draft your script in the built-in editor</div>
+    </div>
+
+    <div class="workflow-arrow">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </div>
+
+    <div class="workflow-step">
+      <div class="workflow-num">02</div>
+      <div class="workflow-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+      </div>
+      <div class="workflow-label">Configure</div>
+      <div class="workflow-desc">Set blur, exposure, aperture and resolution</div>
+    </div>
+
+    <div class="workflow-arrow">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </div>
+
+    <div class="workflow-step">
+      <div class="workflow-num">03</div>
+      <div class="workflow-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l2 2"/></svg>
+      </div>
+      <div class="workflow-label">Breathe</div>
+      <div class="workflow-desc">Calm pause — center yourself before filming</div>
+    </div>
+
+    <div class="workflow-arrow">
+      <svg viewBox="0 0 24 24"><polyline points="9 18 15 12 9 6"/></svg>
+    </div>
+
+    <div class="workflow-step">
+      <div class="workflow-num">04</div>
+      <div class="workflow-icon" style="border-color: rgba(204,51,51,0.3);">
+        <svg viewBox="0 0 24 24" style="stroke: var(--red);"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/></svg>
+      </div>
+      <div class="workflow-label">Film</div>
+      <div class="workflow-desc">Press record. You're ready.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ FEATURES ══════════════ -->
+<section class="features-section">
+  <p class="section-eyebrow">What makes it different</p>
+  <h2 class="section-heading">Designed to <em>create,</em><br>not to complicate.</h2>
+
+  <div class="features-grid">
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>
+      </div>
+      <div class="feature-name">Cinematic blur</div>
+      <div class="feature-desc">Apple's native Cinematic Video API creates real-time background blur. No green screen, no post-production. Just you, in focus.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><rect x="4" y="3" width="16" height="18" rx="2"/><line x1="8" y1="7" x2="16" y2="7"/><line x1="8" y1="11" x2="16" y2="11"/><line x1="8" y1="15" x2="12" y2="15"/></svg>
+      </div>
+      <div class="feature-name">Teleprompter by the lens</div>
+      <div class="feature-desc">Your script scrolls just below the camera lens. Adjustable speed, natural eye contact. No second screen needed.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+      </div>
+      <div class="feature-name">Calm pause before filming</div>
+      <div class="feature-desc">Box breathing (4-4-4-4) with gentle haptics. Take a moment to center yourself before you press record.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div class="feature-name">Privacy-first</div>
+      <div class="feature-desc">No accounts. No tracking. No data collected. Everything stays on your device. Your videos go straight to Photos.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+      </div>
+      <div class="feature-name">Manual controls</div>
+      <div class="feature-desc">Aperture slider for bokeh depth. Exposure slider for brightness. Tap-to-focus with AE/AF lock. You're in control.</div>
+    </div>
+    <div class="feature-card">
+      <div class="feature-icon">
+        <svg viewBox="0 0 24 24"><path d="M12 2L2 7l10 5 10-5-10-5z"/><path d="M2 17l10 5 10-5"/><path d="M2 12l10 5 10-5"/></svg>
+      </div>
+      <div class="feature-name">One-time purchase</div>
+      <div class="feature-desc">$14.99 and it's yours. No subscription, no in-app purchases, no premium tiers. Every feature, forever.</div>
+    </div>
+  </div>
+</section>
+
+<div class="divider"></div>
+
+<!-- ══════════════ PHILOSOPHY ══════════════ -->
+<section class="philosophy-section">
+  <p class="philosophy-quote">"The best tools are the ones that disappear when you're using them."</p>
+  <p class="philosophy-body">CalmShot is built on the principles of Calm Tech Notebook — a design philosophy where tools work at the periphery of your attention, not in competition with it. No engagement metrics. No social features. No complexity for complexity's sake. Just a camera that helps you film with intention.</p>
+</section>
+
+<!-- ══════════════ PILLARS ══════════════ -->
+<section class="pillars-section">
+  <div class="pillars-list">
+    <div class="pillar-row">
+      <span class="pillar-number">01</span>
+      <div class="pillar-content">
+        <div class="pillar-title">Local-first architecture</div>
+        <div class="pillar-desc">Your scripts, your settings, your videos — all stored locally on your iPhone. No cloud sync required, no server dependency, no account to create.</div>
+      </div>
+    </div>
+    <div class="pillar-row">
+      <span class="pillar-number">02</span>
+      <div class="pillar-content">
+        <div class="pillar-title">Configure before filming</div>
+        <div class="pillar-desc">All shooting settings live in a dedicated section. When you're in the viewfinder, there's nothing between you and your content except the record button.</div>
+      </div>
+    </div>
+    <div class="pillar-row">
+      <span class="pillar-number">03</span>
+      <div class="pillar-content">
+        <div class="pillar-title">Native performance</div>
+        <div class="pillar-desc">Built entirely on Apple's Cinematic Video API. No third-party frameworks, no custom shaders, no compromises. The blur and stabilization you see is Apple-grade quality.</div>
+      </div>
+    </div>
+    <div class="pillar-row">
+      <span class="pillar-number">04</span>
+      <div class="pillar-content">
+        <div class="pillar-title">Intentional by design</div>
+        <div class="pillar-desc">Filming is not a race. CalmShot encourages preparation, calm, and deliberate engagement with your content. A breathing exercise before you record, not a countdown to urgency.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════ BOTTOM CTA ══════════════ -->
+<section class="bottom-cta" id="appstore">
+  <h2 class="bottom-cta-title">Film with intention.<br><em>Stay calm.</em></h2>
+  <p class="bottom-cta-sub">Available on the App Store. One purchase, every feature, forever.</p>
+  <div class="appstore-badge">
+    <a href="#" class="btn-primary">
+      <svg viewBox="0 0 24 24" fill="currentColor" width="18" height="18"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+      Download on the App Store
+    </a>
+    <p class="appstore-note">$14.99 · iOS 26+ · iPhone 11+ · No data collected</p>
+  </div>
+</section>
+
+<!-- ══════════════ FOOTER ══════════════ -->
+<footer>
+  <div class="footer-links">
+    <a href="#" target="_blank">FAQ</a>
+    <a href="#" target="_blank">Privacy Policy</a>
+    <a href="#" target="_blank">Terms of Use</a>
+    <a href="https://calmtechnotebook.substack.com" target="_blank">Blog</a>
+  </div>
+  <p class="footer-copy">© 2026 Calm Tech Notebook · CalmShot is a product of Calm Tech Notebook</p>
+</footer>
